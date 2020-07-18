@@ -27,8 +27,6 @@ EffectSsInit Effect_Ss_Dead_Dd_InitVars = {
     EffectSsDeadDd_Init,
 };
 
-extern Mtx D_01000000;
-
 u32 EffectSsDeadDd_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx) {
     s32 i;
     EffectSsDeadDdInitParams* initParams = (EffectSsDeadDdInitParams*)initParamsx;
