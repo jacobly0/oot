@@ -2,6 +2,8 @@
 #include "global.h"
 #include "vt.h"
 
+//#define NON_EQUIVALENT
+
 #define ENV_ROM_FILE(name) \
     { (u32) _vr_##name##_staticSegmentRomStart, (u32)_vr_##name##_staticSegmentRomEnd }
 #define ENV_ROM_FILES(name) \
@@ -198,15 +200,29 @@ u8 func_8006F140(GlobalContext* globalCtx, EnvironmentContext* envCtx, UNK_TYPE 
     envCtx->lightning = 0;
     envCtx->unk_E0 = 0;
     envCtx->unk_E1 = 0;
+#if 1
     envCtx->unk_E2.r = 0;
     envCtx->unk_E2.g = 0;
     envCtx->unk_E2.b = 0;
     envCtx->unk_E2.a = 0;
+#else
+    envCtx->unk_E2.c[0] = 0;
+    envCtx->unk_E2.c[1] = 0;
+    envCtx->unk_E2.c[2] = 0;
+    envCtx->unk_E2.c[3] = 0;
+#endif
     envCtx->unk_E9 = 0;
+#if 1
     envCtx->unk_EA.r = 0;
     envCtx->unk_EA.g = 0;
     envCtx->unk_EA.b = 0;
     envCtx->unk_EA.a = 0;
+#else
+    envCtx->unk_EA.c[0] = 0;
+    envCtx->unk_EA.c[1] = 0;
+    envCtx->unk_EA.c[2] = 0;
+    envCtx->unk_EA.c[3] = 0;
+#endif
     envCtx->unk_E6 = 0;
     envCtx->unk_E7 = 0;
     envCtx->unk_E8 = 0;
@@ -215,9 +231,15 @@ u8 func_8006F140(GlobalContext* globalCtx, EnvironmentContext* envCtx, UNK_TYPE 
     envCtx->unk_D8 = 1.0f;
 
     D_8015FD70.unk_00 = 0;
+#if 1
     D_8015FD70.unk_01.r = 0;
     D_8015FD70.unk_01.g = 0;
     D_8015FD70.unk_01.b = 0;
+#else
+    D_8015FD70.unk_01.c[0] = 0;
+    D_8015FD70.unk_01.c[1] = 0;
+    D_8015FD70.unk_01.c[2] = 0;
+#endif
     D_8015FD7C = 0;
     gSaveContext.unk_1410 = 0;
 
@@ -1754,6 +1776,8 @@ void Kankyo_FillScreen(GraphicsContext* gfxCtx, u8 r, u8 g, u8 b, u8 a, u8 disp)
 
 #ifdef NON_EQUIVALENT
 // incomplete
+void consume() {
+}
 void func_80076934(GlobalContext* globalCtx, u8 arg1) {
     static char D_8011FEC4[] = { 0xD2, 0x9C, 0x55, 0xFF, 0xC8, 0x64, 0xE1, 0xA0, 0x32, 0x69, 0x5A, 0x28 };
     static char D_8011FED0[] = { 0x9B, 0x6A, 0x23, 0xC8, 0x96, 0x32, 0xAA, 0x6E,
